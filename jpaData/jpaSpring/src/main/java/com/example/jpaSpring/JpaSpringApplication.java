@@ -19,7 +19,7 @@ public class JpaSpringApplication {
 		SpringApplication.run(JpaSpringApplication.class, args);
 	}
 
-@Bean
+  @Bean
   public CommandLineRunner demo(CustomerRepository repository) {
     return (args) -> {
       // save a few customers
@@ -38,7 +38,7 @@ public class JpaSpringApplication {
       log.info("");
 
       // fetch an individual customer by ID
-      Customer customer = repository.findById(1L);
+      Customer customer = repository.findById(1L).orElse(null);
       log.info("Customer found with findById(1L):");
       log.info("--------------------------------");
       log.info(customer.toString());

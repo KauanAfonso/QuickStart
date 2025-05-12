@@ -13,18 +13,21 @@ import jakarta.persistence.Id;
 public class Customer{
 
   @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+  @GeneratedValue(strategy=GenerationType.AUTO) //Gerar o id automaticamente
   private Long id;
   private String firstName;
   private String lastName;
 
-  protected Customer() {}
+  protected Customer() {} //classe protegida para o jpa
 
+  //classe construtora padrão
   public Customer(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
 
+
+  //polimorfismo do metodo toString
   @Override
   public String toString() {
     return String.format(
@@ -32,6 +35,8 @@ public class Customer{
         id, firstName, lastName);
   }
 
+  //Obtendo objetos:
+  
   public Long getId() {
     return id;
   }
